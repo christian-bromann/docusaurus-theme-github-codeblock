@@ -31,8 +31,8 @@ jobs:
         run: npm run build
       - name: Setup Git
         run: |
-          git config --global user.name "christian-bromann"
-          git config --global user.email "git@bromann.dev"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
       - name: NPM Setup
         run: |
           npm set registry "https://registry.npmjs.org/"
