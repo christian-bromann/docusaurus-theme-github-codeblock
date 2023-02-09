@@ -14,7 +14,7 @@ on:
           - major
 
 jobs:
-  test:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - name: Clone Repository
