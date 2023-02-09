@@ -1,4 +1,3 @@
-import { timeStamp } from 'console'
 import { parseReference, codeReducer } from '../src/theme/ReferenceCodeBlock/index'
 
 test('should parse GitHub reference properly', () => {
@@ -17,22 +16,3 @@ test('codeReducer', () => {
     // @ts-expect-error
     expect(codeReducer(prevState, { type: 'unknown', value: '' })).toEqual(prevState)
 })
-
-// export function codeReducer (prevState: any, { type, value }: DispatchMessage) {
-//     switch (type) {
-//         case 'reset': {
-//         return initialFetchResultState;
-//         }
-//         case 'loading': {
-//         return {...prevState, loading: true};
-//         }
-//         case 'loaded': {
-//         return {...prevState, code: value, loading: false};
-//         }
-//         case 'error': {
-//         return {...prevState, error: value, loading: false};
-//         }
-//         default:
-//         return prevState;
-//     }
-// }
