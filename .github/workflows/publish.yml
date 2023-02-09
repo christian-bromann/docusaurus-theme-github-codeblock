@@ -29,6 +29,10 @@ jobs:
         run: npm test
       - name: Build package
         run: npm run build
+      - name: Setup Git
+        run: |
+          git config --global user.name "christian-bromann"
+          git config --global user.email "git@bromann.dev"
       - name: NPM Setup
         run: |
           npm set registry "https://registry.npmjs.org/"
