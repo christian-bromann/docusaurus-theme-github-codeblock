@@ -8,11 +8,11 @@ slug: /
 This theme provides the following:
 
 ```js reference
-https://github.com/saucelabs/docusaurus-theme-github-codeblock/blob/main/src/theme/ReferenceCodeBlock/index.tsx#L104-L107
+https://github.com/christian-bromann/docusaurus-theme-github-codeblock/blob/main/src/theme/ReferenceCodeBlock/index.tsx#L104-L107
 ```
 
 ```js reference title="Custom Title"
-https://github.com/saucelabs/docusaurus-theme-github-codeblock/blob/main/src/theme/ReferenceCodeBlock/index.tsx#L104-L107
+https://github.com/christian-bromann/docusaurus-theme-github-codeblock/blob/main/src/theme/ReferenceCodeBlock/index.tsx#L104-L107
 ```
 
 You can write content using [GitHub-flavored Markdown syntax](https://github.github.com/gfm/).

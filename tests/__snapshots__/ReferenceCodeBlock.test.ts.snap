@@ -36,7 +36,7 @@ Object {
   "fromLine": 0,
   "title": "src/theme/ReferenceCodeBlock/index.ts",
   "toLine": Infinity,
-  "url": "https://raw.githubusercontent.com/saucelabs/docusaurus-theme-github-codeblock/main/src/theme/ReferenceCodeBlock/index.ts",
+  "url": "https://raw.githubusercontent.com/christian-bromann/docusaurus-theme-github-codeblock/main/src/theme/ReferenceCodeBlock/index.ts",
 }
 `;
 
@@ -45,6 +45,6 @@ Object {
   "fromLine": 104,
   "title": "src/theme/ReferenceCodeBlock/index.tsx",
   "toLine": 9,
-  "url": "https://raw.githubusercontent.com/saucelabs/docusaurus-theme-github-codeblock/main/src/theme/ReferenceCodeBlock/index.tsx",
+  "url": "https://raw.githubusercontent.com/christian-bromann/docusaurus-theme-github-codeblock/main/src/theme/ReferenceCodeBlock/index.tsx",
 }
 `;
