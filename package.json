@@ -1,6 +1,6 @@
 {
   "name": "docusaurus-theme-github-codeblock",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A Docusaurus v2 plugin that supports referencing code examples from public GitHub repositories.",
   "main": "build/index.js",
   "exports": {
