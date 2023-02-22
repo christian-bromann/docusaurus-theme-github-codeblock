@@ -13,6 +13,9 @@ module.exports = {
     path.resolve(__dirname, '..', 'build')
   ],
   themeConfig: {
+    codeblock: {
+        showRunmeLink: true
+    },
     navbar: {
       title: 'My Site',
       logo: {

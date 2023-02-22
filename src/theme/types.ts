@@ -4,7 +4,9 @@ export interface GitHubReference {
     url: string
     fromLine: number
     toLine: number
-    title: string
+    title: string,
+    org: string,
+    repo: string
 }
 
 export interface ReferenceCodeBlockProps extends Props {

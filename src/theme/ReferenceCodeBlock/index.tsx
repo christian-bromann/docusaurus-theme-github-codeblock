@@ -1,6 +1,6 @@
-import { URL } from 'url'
 import React, { useReducer } from 'react'
 import CodeBlock from '@theme-init/CodeBlock'
+import { useCodeblockThemeConfig } from 'docusaurus-theme-github-codeblock/client'
 
 import type { ReferenceCodeBlockProps, GitHubReference, DispatchMessage } from '../types'
 
@@ -10,13 +10,17 @@ const initialFetchResultState = {
     loading: null,
 }
 
-const noteStyle: React.CSSProperties = {
+const buttonBarStyles: React.CSSProperties = {
     fontSize: '.9em',
     fontWeight: 600,
     color: '#0E75DD',
-    textAlign: 'center',
+    textAlign: 'right',
     paddingBottom: '13px',
-    textDecoration: 'underline',
+    textDecoration: 'underline'
+}
+
+const buttonStyles: React.CSSProperties = {
+    margin: '0 10px'
 }
 
 /**
@@ -24,18 +28,12 @@ const noteStyle: React.CSSProperties = {
  * @param {string} ref url to github file
  */
 export function parseReference (ref: string): GitHubReference {
-    const fullUrl = ref.slice(ref.indexOf('https'), -1)
+    const fullUrl = ref.slice(ref.indexOf('https'))
     const [url, loc] = fullUrl.split('#')
 
     /**
      * webpack causes failures when it tries to render this page
      */
-    const global = globalThis || {}
-    if (!global.URL) {
-        // @ts-ignore
-        global.URL = URL
-    }
-
     const [org, repo, blob, branch, ...pathSeg] = new global.URL(url).pathname.split('/').slice(1)
     const [fromLine, toLine] = loc
         ? loc.split('-').map((lineNr) => parseInt(lineNr.slice(1), 10) - 1)
@@ -45,7 +43,9 @@ export function parseReference (ref: string): GitHubReference {
         url: `https://raw.githubusercontent.com/${org}/${repo}/${branch}/${pathSeg.join('/')}`,
         fromLine,
         toLine,
-        title: pathSeg.join('/')
+        title: pathSeg.join('/'),
+        org,
+        repo
     }
 }
 
@@ -102,6 +102,32 @@ export function codeReducer (prevState: any, { type, value }: DispatchMessage) {
     }
 }
 
+export function getRunmeLink (snippetUrl: string, metastring: string) {
+    const params = new URLSearchParams({ command: 'setup' });
+    const runmeRepositoryMatch = metastring.match(/runmeRepository="(?<repository>[^"]*)"/);
+    const runmeFileToOpenMatch = metastring.match(/runmeFileToOpen="(?<fileToOpen>[^"]*)"/);
+
+    if (snippetUrl.endsWith('.md')) {
+        params.set('fileToOpen', parseReference(snippetUrl).url)
+        return params.toString()
+    }
+
+    if (runmeFileToOpenMatch?.groups?.fileToOpen) {
+        params.set('fileToOpen', runmeFileToOpenMatch.groups.fileToOpen)
+
+        if (runmeRepositoryMatch?.groups?.repository) {
+            params.set('repository', runmeRepositoryMatch.groups.repository)
+        }
+
+        return params.toString()
+    }
+
+    const { org, repo, title } = parseReference(snippetUrl)
+    params.set('repository', `git@github.com:${org}/${repo}.git`)
+    params.set('fileToOpen', title.split('/').slice(0, -1).join('/') + '/README.md')
+    return params.toString()
+}
+
 function ReferenceCode(props: ReferenceCodeBlockProps) {
     const [fetchResultState, fetchResultStateDispatcher] = useReducer(
         codeReducer,
@@ -113,8 +139,7 @@ function ReferenceCode(props: ReferenceCodeBlockProps) {
         fetchCode(codeSnippetDetails, fetchResultStateDispatcher)
     }
 
-    const titleMatch = props.metastring?.match(/title="(?<title>.*)"/);
-
+    const titleMatch = props.metastring?.match(/title="(?<title>[^"]*)"/);
     const customProps = {
         ...props,
         metastring: titleMatch?.groups?.title
@@ -123,10 +148,35 @@ function ReferenceCode(props: ReferenceCodeBlockProps) {
         children: initialFetchResultState.code,
     };
 
+    const codeblockConfig = useCodeblockThemeConfig()
+    const showButtons = codeblockConfig.showGithubLink || codeblockConfig.showRunmeLink
     return (
-        <div>
+        <div className='docusaurus-theme-github-codeblock'>
             <CodeBlock {...customProps}>{fetchResultState.code}</CodeBlock>
-            <div style={noteStyle}><a href={props.children} target="_blank">See full example on GitHub</a></div>
+            {showButtons && (
+                <div style={buttonBarStyles}>
+                    {codeblockConfig.showRunmeLink && props.metastring && (
+                        <a
+                            href={`vscode://stateful.runme?${getRunmeLink(props.children, props.metastring)}`}
+                            className='runmeLink'
+                            target="_blank"
+                            style={buttonStyles}
+                        >
+                                {codeblockConfig.runmeLinkLabel}
+                        </a>
+                    )}
+                    {codeblockConfig.showGithubLink && (
+                        <a
+                            href={props.children}
+                            className='githubLink'
+                            style={buttonStyles}
+                            target="_blank"
+                        >
+                            {codeblockConfig.githubLinkLabel}
+                        </a>
+                    )}
+                </div>
+            )}
         </div>
     );
 }
