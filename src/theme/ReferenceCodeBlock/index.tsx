@@ -102,11 +102,7 @@ export function codeReducer (prevState: any, { type, value }: DispatchMessage) {
     }
 }
 
-function getRunmeLink (snippetUrl: string, metastring?: string) {
-    if (!metastring) {
-        return
-    }
-
+export function getRunmeLink (snippetUrl: string, metastring: string) {
     const params = new URLSearchParams({ command: 'setup' });
     const runmeRepositoryMatch = metastring.match(/runmeRepository="(?<repository>[^"]*)"/);
     const runmeFileToOpenMatch = metastring.match(/runmeFileToOpen="(?<fileToOpen>[^"]*)"/);
@@ -159,7 +155,7 @@ function ReferenceCode(props: ReferenceCodeBlockProps) {
             <CodeBlock {...customProps}>{fetchResultState.code}</CodeBlock>
             {showButtons && (
                 <div style={buttonBarStyles}>
-                    {codeblockConfig.showRunmeLink && (
+                    {codeblockConfig.showRunmeLink && props.metastring && (
                         <a
                             href={`vscode://stateful.runme?${getRunmeLink(props.children, props.metastring)}`}
                             className='runmeLink'
