@@ -11,13 +11,12 @@
     "serve": "docusaurus serve"
   },
   "dependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
-    "@docusaurus/core": "2.0.0-alpha.65",
-    "@docusaurus/preset-classic": "2.0.0-alpha.65",
+    "@docusaurus/core": "^2.3.1",
+    "@docusaurus/preset-classic": "^2.3.1",
     "@mdx-js/react": "^1.5.8",
     "clsx": "^1.1.1",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "browserslist": {
     "production": [
