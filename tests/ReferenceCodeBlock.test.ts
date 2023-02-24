@@ -1,7 +1,8 @@
 /**
  * @jest-environment jsdom
  */
-import { parseReference, codeReducer, getRunmeLink } from '../src/theme/ReferenceCodeBlock/index'
+import { getRunmeLink } from '../src/theme/ReferenceCodeBlock/RunmeLink'
+import { parseReference, codeReducer } from '../src/theme/ReferenceCodeBlock/utils'
 
 const exampleLink = 'https://github.com/christian-bromann/docusaurus-theme-github-codeblock/blob/main/src/theme/ReferenceCodeBlock/index.tsx'
 

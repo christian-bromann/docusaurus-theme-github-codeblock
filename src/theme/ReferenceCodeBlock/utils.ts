@@ -1,4 +1,4 @@
-import { initialFetchResultState } from './constants.js'
+import { initialFetchResultState } from './constants'
 import type { GitHubReference, DispatchMessage } from '../types'
 
 /**
