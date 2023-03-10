@@ -48,12 +48,6 @@ You can also set a custom title:
     https://github.com/christian-bromann/docusaurus-theme-github-codeblock/blob/main/src/theme/ReferenceCodeBlock/index.tsx#L105-L108
     ```
 
-If you prefer to clone the reference using a Git HTTPS url, add `useHTTPS` to the frontmatter:
-
-    ```js reference useHTTPS
-    https://github.com/christian-bromann/docusaurus-theme-github-codeblock/blob/main/src/theme/ReferenceCodeBlock/index.tsx#L105-L108
-    ```
-
 The plugin will download the code and display the desired lines:
 
 ![Plugin Example](https://github.com/christian-bromann/docusaurus-theme-github-codeblock/raw/main/.github/assets/example.png 'Plugin Example')
@@ -68,6 +62,12 @@ If the markdown file you like the user to check-out is located in a different re
 
     ```js reference runmeRepository="git@github.com:christian-bromann/docusaurus-theme-github-codeblock.git" runmeFileToOpen="CONTRIBUTING.md"
     https://github.com/christian-bromann/docusaurus-theme-github-codeblock/blob/main/src/theme/ReferenceCodeBlock/index.tsx#L105-L115
+    ```
+
+In case you have `showRunmeLink` set for all code references, if you prefer to clone the reference using a Git HTTPS url, add `useHTTPS` to the frontmatter:
+
+    ```js reference useHTTPS
+    https://github.com/christian-bromann/docusaurus-theme-github-codeblock/blob/main/src/theme/ReferenceCodeBlock/index.tsx#L105-L108
     ```
 
 Learn more about Runme in the [project docs](https://runme.dev/docs/intro).
