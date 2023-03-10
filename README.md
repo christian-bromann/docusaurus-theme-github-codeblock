@@ -48,6 +48,12 @@ You can also set a custom title:
     https://github.com/christian-bromann/docusaurus-theme-github-codeblock/blob/main/src/theme/ReferenceCodeBlock/index.tsx#L105-L108
     ```
 
+If you prefer to clone the reference using a Git HTTPS url, add `useHTTPS` to the frontmatter:
+
+    ```js reference useHTTPS
+    https://github.com/christian-bromann/docusaurus-theme-github-codeblock/blob/main/src/theme/ReferenceCodeBlock/index.tsx#L105-L108
+    ```
+
 The plugin will download the code and display the desired lines:
 
 ![Plugin Example](https://github.com/christian-bromann/docusaurus-theme-github-codeblock/raw/main/.github/assets/example.png 'Plugin Example')

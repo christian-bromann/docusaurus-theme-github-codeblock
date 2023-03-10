@@ -50,8 +50,9 @@ function RunmeLinkComponent({ reference, metastring }: RunmeLinkProps) {
 
 export function getRunmeLink (snippetUrl: string, metastring: string) {
     const params = new URLSearchParams({ command: 'setup' });
-    const runmeRepositoryMatch = metastring.match(/runmeRepository="(?<repository>[^"]*)"/);
-    const runmeFileToOpenMatch = metastring.match(/runmeFileToOpen="(?<fileToOpen>[^"]*)"/);
+    const runmeRepositoryMatch = metastring.match(/runmeRepository="(?<repository>[^"]*)"/)
+    const runmeFileToOpenMatch = metastring.match(/runmeFileToOpen="(?<fileToOpen>[^"]*)"/)
+    const useHTTPS = metastring.match(/useHTTPS|useHTTPS=(false|true)/)
 
     if (snippetUrl.endsWith('.md')) {
         params.set('fileToOpen', parseReference(snippetUrl).url)
@@ -69,7 +70,12 @@ export function getRunmeLink (snippetUrl: string, metastring: string) {
     }
 
     const { org, repo, title } = parseReference(snippetUrl)
-    params.set('repository', `git@github.com:${org}/${repo}.git`)
+    console.log(1, useHTTPS?.input);
+
+    const cloneHost = useHTTPS && (useHTTPS.input === 'useHTTPS=true' || useHTTPS.input === 'useHTTPS')
+        ? 'https://github.com/'
+        : 'git@github.com:'
+    params.set('repository', `${cloneHost}${org}/${repo}.git`)
     params.set('fileToOpen', title.split('/').slice(0, -1).join('/') + '/README.md')
     return params.toString()
 }

@@ -33,9 +33,15 @@ exports[`codeReducer 4`] = `
 
 exports[`getRunmeLink 1`] = `"command=setup&repository=git%40github.com%3Achristian-bromann%2Fdocusaurus-theme-github-codeblock.git&fileToOpen=src%2Ftheme%2FReferenceCodeBlock%2FREADME.md"`;
 
-exports[`getRunmeLink 2`] = `"command=setup&fileToOpen=foobar"`;
+exports[`getRunmeLink 2`] = `"command=setup&repository=https%3A%2F%2Fgithub.com%2Fchristian-bromann%2Fdocusaurus-theme-github-codeblock.git&fileToOpen=src%2Ftheme%2FReferenceCodeBlock%2FREADME.md"`;
 
-exports[`getRunmeLink 3`] = `"command=setup&fileToOpen=foofoo&repository=foobar"`;
+exports[`getRunmeLink 3`] = `"command=setup&repository=https%3A%2F%2Fgithub.com%2Fchristian-bromann%2Fdocusaurus-theme-github-codeblock.git&fileToOpen=src%2Ftheme%2FReferenceCodeBlock%2FREADME.md"`;
+
+exports[`getRunmeLink 4`] = `"command=setup&repository=git%40github.com%3Achristian-bromann%2Fdocusaurus-theme-github-codeblock.git&fileToOpen=src%2Ftheme%2FReferenceCodeBlock%2FREADME.md"`;
+
+exports[`getRunmeLink 5`] = `"command=setup&fileToOpen=foobar"`;
+
+exports[`getRunmeLink 6`] = `"command=setup&fileToOpen=foofoo&repository=foobar"`;
 
 exports[`should parse GitHub reference properly 1`] = `
 {
