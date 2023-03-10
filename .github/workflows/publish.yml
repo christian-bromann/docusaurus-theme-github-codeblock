@@ -13,6 +13,10 @@ on:
           - minor
           - major
 
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.PAT }}
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -34,12 +38,8 @@ jobs:
           npm set registry "https://registry.npmjs.org/"
           npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
           npm whoami
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Release
         run: |
           git config --global user.name "christian-bromann"
           git config --global user.email "git@bromann.dev"
           npm run release -- ${{github.event.inputs.releaseType}}
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
