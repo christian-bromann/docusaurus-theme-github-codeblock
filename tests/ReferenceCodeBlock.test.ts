@@ -23,9 +23,9 @@ test('codeReducer', () => {
 
 test('getRunmeLink', () => {
     expect(getRunmeLink(exampleLink, '')).toMatchSnapshot()
-    expect(getRunmeLink(exampleLink, 'useHTTPS')).toMatchSnapshot()
-    expect(getRunmeLink(exampleLink, 'useHTTPS=true')).toMatchSnapshot()
-    expect(getRunmeLink(exampleLink, 'useHTTPS=false')).toMatchSnapshot()
+    expect(getRunmeLink(exampleLink, 'reference useHTTPS')).toMatchSnapshot()
+    expect(getRunmeLink(exampleLink, 'reference useHTTPS=true')).toMatchSnapshot()
+    expect(getRunmeLink(exampleLink, 'reference useHTTPS=false')).toMatchSnapshot()
     expect(getRunmeLink(exampleLink, 'runmeFileToOpen="foobar" title="barfoo"')).toMatchSnapshot()
     expect(getRunmeLink(exampleLink, 'runmeRepository="foobar" title="barfoo" runmeFileToOpen="foofoo"')).toMatchSnapshot()
 })

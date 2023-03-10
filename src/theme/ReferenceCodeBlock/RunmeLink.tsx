@@ -70,9 +70,7 @@ export function getRunmeLink (snippetUrl: string, metastring: string) {
     }
 
     const { org, repo, title } = parseReference(snippetUrl)
-    console.log(1, useHTTPS?.input);
-
-    const cloneHost = useHTTPS && (useHTTPS.input === 'useHTTPS=true' || useHTTPS.input === 'useHTTPS')
+    const cloneHost = useHTTPS && useHTTPS.input && (useHTTPS.input.includes('useHTTPS=true') || useHTTPS.input.includes(' useHTTPS ') || useHTTPS.input.endsWith('useHTTPS'))
         ? 'https://github.com/'
         : 'git@github.com:'
     params.set('repository', `${cloneHost}${org}/${repo}.git`)
