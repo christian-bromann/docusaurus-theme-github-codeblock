@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/christian-bromann/docusaurus-code-references.git"
+    "url": "git+https://github.com/christian-bromann/docusaurus-theme-github-codeblock.git"
   },
   "keywords": [
     "docusarus"
@@ -33,9 +33,9 @@
   "author": "Christian Bromann <mail@bromann.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/christian-bromann/docusaurus-code-references/issues"
+    "url": "https://github.com/christian-bromann/docusaurus-theme-github-codeblock/issues"
   },
-  "homepage": "https://github.com/christian-bromann/docusaurus-code-references#readme",
+  "homepage": "https://github.com/christian-bromann/docusaurus-theme-github-codeblock#readme",
   "devDependencies": {
     "@types/jest": "^29.4.0",
     "@types/node": "^18.13.0",
