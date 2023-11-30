@@ -8,11 +8,11 @@ slug: /
 This theme provides the following:
 
 ```js reference runmeRepository="git@github.com:christian-bromann/docusaurus-theme-github-codeblock.git" runmeFileToOpen="CONTRIBUTING.md"
-https://github.com/christian-bromann/docusaurus-theme-github-codeblock/blob/main/src/theme/ReferenceCodeBlock/index.tsx#L105-L115
+https://github.com/webdriverio/example-recipes/blob/main/click/example.js#L14-L18
 ```
 
 ```js reference runmeFileToOpen="https://gist.githubusercontent.com/christian-bromann/df97ce3dace21564ffdf1900400ec099/raw/0a9b29c979d61e17032c855b04dbc4f5b962f847/ThankYou.md" title="Custom Title"
-https://github.com/christian-bromann/docusaurus-theme-github-codeblock/blob/main/src/theme/ReferenceCodeBlock/index.tsx#L105-L115
+https://github.com/webdriverio/example-recipes/blob/main/click/example.js#L114-L182
 ```
 
 ```js reference

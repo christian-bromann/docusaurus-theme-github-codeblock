@@ -11,9 +11,13 @@ import CodeBlock from '@theme-init/CodeBlock'
 
 import type { ReferenceCodeBlockProps } from '../types'
 
+function hasReferenceMeta(props: ReferenceCodeBlockProps) {
+    return (props.reference || props.metastring?.split(' ').includes('reference'))
+}
+
 const componentWrapper = (Component: typeof CodeBlock) => {
   const WrappedComponent = (props: ReferenceCodeBlockProps) => {
-    if (props.reference) {
+    if (hasReferenceMeta(props)) {
       return (
         <ReferenceCodeBlock {...props} />
       );

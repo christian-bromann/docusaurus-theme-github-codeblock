@@ -55,6 +55,13 @@ export async function fetchCode({ url, fromLine, toLine }: GitHubReference, fetc
         return 0
     }, Infinity)
 
+    if (body.length === 0) {
+        return fetchResultStateDispatcher({
+            type: 'error',
+            value: `Error: No code found at ${url} from line ${fromLine} to line ${toLine}`
+        })
+    }
+
     return fetchResultStateDispatcher({
         type: 'loaded',
         value: body.map((line) => line.slice(preceedingSpace)).join('\n')
@@ -73,7 +80,7 @@ export function codeReducer(prevState: any, { type, value }: DispatchMessage) {
             return { ...prevState, code: value, loading: false };
         }
         case 'error': {
-            return { ...prevState, error: value, loading: false };
+            return { ...prevState, code: value, loading: false };
         }
         default:
             return prevState;
