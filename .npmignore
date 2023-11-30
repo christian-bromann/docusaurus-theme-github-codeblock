@@ -4,7 +4,10 @@ node_modules
 src
 tests
 tsconfig.json
+tsconfig.cjs.json
 .github
 .editorconfig
 *.tgz
 /*.js
+CONTRIBUTING.md
+.nvmrc
