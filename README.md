@@ -92,14 +92,14 @@ __Default:__ `View on GitHub`
 
 ### `showRunmeLink`
 
-If set to `true`, a Runme link is provided. This property will be automatically set to `false` if a mobile environment is detected given these environment don't support the `vscode://` url schema.
+If set to `true`, a [Runme](https://runme.dev) link is provided. This property will be automatically set to `false` if a mobile environment is detected given these environment don't support the `vscode://` url schema.
 
 __Type:__ `boolean`<br />
 __Default:__ `true`
 
 ### `runmeLinkLabel`
 
-Link text for Runme link.
+Link text for [Runme](https://runme.dev) link.
 
 __Type:__ `string`<br />
 __Default:__ `Checkout via Runme`
