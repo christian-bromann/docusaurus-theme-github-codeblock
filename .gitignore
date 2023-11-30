@@ -105,3 +105,4 @@ dist
 
 build
 cjs
+!src/cjs
