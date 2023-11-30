@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import ReferenceCodeBlock from '../ReferenceCodeBlock'
+import ReferenceCodeBlock from '../ReferenceCodeBlock/index.js'
 import CodeBlock from '@theme-init/CodeBlock'
 
 import type { ReferenceCodeBlockProps } from '../types'
@@ -25,4 +25,4 @@ const componentWrapper = (Component: typeof CodeBlock) => {
   return WrappedComponent;
 };
 
-module.exports = componentWrapper(CodeBlock)
+export default componentWrapper(CodeBlock)

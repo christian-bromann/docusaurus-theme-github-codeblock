@@ -5,7 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import path from 'path'
+import url from 'node:url'
+import path from 'node:path'
+
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 
 export default () => ({
     name: 'docusaurus-theme-github-codeblock',

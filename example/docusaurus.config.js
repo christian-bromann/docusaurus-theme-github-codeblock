@@ -1,6 +1,8 @@
-const path = require('path');
+import path from 'node:path';
+import { themes as prismThemes } from 'prism-react-renderer';
 
-module.exports = {
+/** @type {import('@docusaurus/types').Config} */
+const config = {
   title: 'My Site',
   tagline: 'The tagline of my site',
   url: 'https://your-docusaurus-test-site.com',
@@ -10,11 +12,22 @@ module.exports = {
   organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'docusaurus', // Usually your repo name.
   themes: [
-    path.resolve(__dirname, '..', 'build')
+    path.resolve(__dirname, '..', 'build', 'index.js')
   ],
+  // Even if you don't use internationalization, you can use this field to set
+  // useful metadata like html lang. For example, if your site is Chinese, you
+  // may want to replace "en" with "zh-Hans".
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
   themeConfig: {
     codeblock: {
         showRunmeLink: true
+    },
+    prism: {
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
     },
     navbar: {
       title: 'My Site',
@@ -89,10 +102,10 @@ module.exports = {
   },
   presets: [
     [
-      '@docusaurus/preset-classic',
+      'classic',
       {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: './sidebars.js',
           // Please change this to your repo.
           editUrl:
             'https://github.com/facebook/docusaurus/edit/master/website/',
@@ -104,9 +117,11 @@ module.exports = {
             'https://github.com/facebook/docusaurus/edit/master/website/blog/',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: './src/css/custom.css',
         },
       },
     ],
   ],
 };
+
+export default config;
