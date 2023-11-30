@@ -3,7 +3,7 @@ Docusaurus Theme GitHub Codeblock ![Test Changes](https://github.com/christian-b
 
 A Docusaurus v2 plugin that supports referencing code examples from public GitHub repositories.
 
-> Note: this theme plugin requires [Docusaurus v2](https://v2.docusaurus.io/)
+> Note: this theme plugin supports Docusaurus [v2](https://docusaurus.io/docs/2.x) and [v3](https://docusaurus.io/docs).
 
 ## Install
 
