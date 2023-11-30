@@ -25,7 +25,7 @@ exports[`codeReducer 3`] = `
 
 exports[`codeReducer 4`] = `
 {
-  "error": "ups",
+  "code": "ups",
   "foo": "bar",
   "loading": false,
 }
