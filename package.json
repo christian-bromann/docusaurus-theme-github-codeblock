@@ -1,6 +1,6 @@
 {
   "name": "docusaurus-theme-github-codeblock",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "Christian Bromann <mail@bromann.com>",
   "description": "A Docusaurus v2 plugin that supports referencing code examples from public GitHub repositories.",
   "license": "MIT",
